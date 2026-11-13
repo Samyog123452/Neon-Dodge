@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Dodge Arcade</title>
+    <link rel="stylesheet" href="neon-dodge.css">
+</head>
+<body>
+
+<div class="game-container">
+
+    <header>
+        <h1>NEON DODGE</h1>
+        <div class="currency">🪙 <span id="coins">0</span></div>
+    </header>
+
+    <!-- HOME SCREEN -->
+    <section id="homeScreen" class="screen active">
+        <h2>WELCOME PLAYER</h2>
+        <p>Dodge. Survive. Dominate.</p>
+
+        
+<div class="player-profile">
+    <h3>PLAYER PROFILE</h3>
+
+    <input
+        type="text"
+        id="playerNameInput"
+        placeholder="Enter your gaming name"
+        maxlength="12"
+    >
+
+    <button id="saveNameBtn">SAVE NAME</button>
+
+    <p id="nameStatus">Welcome, Player!</p>
+</div>
+
+<div class="player-progress">
+    <h3>PLAYER LEVEL: <span id="playerLevel">1</span></h3>
+
+    <div class="xp-bar">
+        <div id="xpFill"></div>
+    </div>
+
+    <p><span id="playerXP">0</span> XP</p>
+</div>
+
+
+        <div class="menu-buttons">
+            <button id="playBtn">PLAY GAME</button>
+            <button id="shopBtn">SKIN SHOP</button>
+            <button id="howToPlayBtn">HOW TO PLAY</button>
+            <button id="settingsBtn">SETTINGS</button>
+            <button id="leaderboardBtn">🏆 LEADERBOARD</button>
+        </div>
+
+        <div class="stats">
+            <p>BEST SCORE: <b id="menuBest">0</b></p>
+        </div>
+    </section>
+
+<!-- SHOP SCREEN -->
+<section id="shopScreen" class="screen">
+    <h2>PLAYER SKINS</h2>
+    <p>Choose your favourite character.</p>
+
+    <div class="skin-selector">
+        <div class="skins">
+
+            <button class="skin-btn active"
+                data-skin="blue"
+                data-color="#00f7ff"
+                data-glow="#00f7ff"
+                data-price="0">
+                BLUE - FREE
+            </button>
+
+            <button class="skin-btn"
+                data-skin="red"
+                data-color="#ff3158"
+                data-glow="#ff3158"
+                data-price="50">
+                RED - 50 COINS
+            </button>
+
+            <button class="skin-btn"
+                data-skin="purple"
+                data-color="#a855f7"
+                data-glow="#a855f7"
+                data-price="100">
+                PURPLE - 100 COINS
+            </button>
+
+            <button class="skin-btn"
+                data-skin="green"
+                data-color="#39ff88"
+                data-glow="#39ff88"
+                data-price="150">
+                GREEN - 150 COINS
+            </button>
+
+        </div>
+    </div>
+
+    <button id="backShopBtn">BACK HOME</button>
+</section>
+
+<!-- HOW TO PLAY SCREEN -->
+<section id="howToPlayScreen" class="screen">
+
+    <h1 class="menu-title">HOW TO PLAY</h1>
+    <p class="menu-subtitle">MASTER THE NEON ARENA</p>
+
+    <div class="instruction-grid">
+
+        <div class="instruction-card">
+            <div class="instruction-icon">⬅️</div>
+            <h3>MOVE LEFT</h3>
+            <p>Press A or LEFT ARROW</p>
+        </div>
+
+        <div class="instruction-card">
+            <div class="instruction-icon">➡️</div>
+            <h3>MOVE RIGHT</h3>
+            <p>Press D or RIGHT ARROW</p>
+        </div>
+
+        <div class="instruction-card">
+            <div class="instruction-icon">⏸️</div>
+            <h3>PAUSE GAME</h3>
+            <p>Press SPACEBAR</p>
+        </div>
+
+        <div class="instruction-card">
+            <div class="instruction-icon">🔥</div>
+            <h3>SURVIVE</h3>
+            <p>Avoid falling obstacles</p>
+        </div>
+
+    </div>
+
+    <button id="howToPlayBackBtn" class="neon-button">
+        BACK TO MENU
+    </button>
+
+</section>
+
+<!-- SETTINGS SCREEN -->
+<section id="settingsScreen" class="screen">
+
+    <h1 class="menu-title">SETTINGS</h1>
+    <p class="menu-subtitle">CUSTOMIZE YOUR EXPERIENCE</p>
+
+    <div class="settings-panel">
+
+        <div class="setting-row">
+            <div>
+                <h3>GAME SOUND</h3>
+                <p>Enable or disable sound effects</p>
+            </div>
+
+            <button id="soundBtn" class="toggle-btn">ON</button>
+            <button id="musicBtn">🎵 PLAY MUSIC</button>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <h3>DIFFICULTY</h3>
+                <p>Coming soon</p>
+            </div>
+
+            <span class="coming-soon">SOON</span>
+        </div>
+
+    </div>
+
+    <button id="settingsBackBtn" class="neon-button">
+        BACK TO MENU
+    </button>
+
+</section>
+
+
+<!-- LEADERBOARD SCREEN -->
+<section id="leaderboardScreen" class="screen">
+
+    <h1 class="menu-title">LEADERBOARD</h1>
+    <p class="menu-subtitle">TOP 10 NEON CHAMPIONS</p>
+
+    <div class="leaderboard-panel">
+
+        <div class="leaderboard-heading">
+            <span>RANK</span>
+            <span>PLAYER</span>
+            <span>SCORE</span>
+        </div>
+
+        <div id="leaderboardList">
+            <!-- Scores will appear here -->
+        </div>
+
+    </div>
+
+    <button id="leaderboardBackBtn" class="neon-button">
+        BACK TO MENU
+    </button>
+
+</section>
+
+
+
+    <!-- GAME SCREEN -->
+    <section id="gameScreen" class="screen">
+
+        
+<div class="score-board">
+    <span>Score: <b id="score">0</b></span>
+    <span>Level: <b id="level">1</b></span>
+    <span>Best: <b id="best">0</b></span>
+</div>
+
+<!-- POWER UP CONTROLS -->
+<div class="powerup-controls">
+
+    <button id="shieldBtn">
+        🛡️ SHIELD
+    </button>
+
+    <button id="slowBtn">
+        ⏳ SLOW MOTION
+    </button>
+    <button id="magnetBtn">🧲 COIN MAGNET</button>
+
+</div>
+
+<div id="levelMessage" class="level-message">
+    LEVEL 1
+</div>
+
+
+        <div class="game-area">
+            <canvas id="gameCanvas"
+                width="800" height="500">
+            <div class="mobile-controls">
+    <button id="leftTouchBtn">◀</button>
+    <button id="rightTouchBtn">▶</button>
+</div>
+            </canvas>
+
+            <div id="overlay" class="overlay">
+                <h2 id="message">READY?</h2>
+                <p id="description">Use ← → or A / D to move</p>
+                <button id="startBtn">START GAME</button>
+            </div>
+        </div>
+
+        <p class="controls">
+            ← → or A / D to move | Space to pause
+        </p>
+
+        <button id="homeBtn">EXIT TO HOME</button>
+
+    </section>
+
+</div>
+
+<script src="neon-dodge.js"></script>
+</body>
+</html>
